@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 170" width="100%" height="100%">
+  <defs>
+    <filter id="dropShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000000" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+  <rect width="200" height="170" fill="#ffffff" rx="12"/>
+  <g transform="translate(50, 45)" filter="url(#dropShadow)">
+  <g transform="rotate(-15 50 45)">
+    <path d="M20 35 L75 30 L85 55 L20 50 Z" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+    <rect x="12" y="38" width="10" height="12" rx="2" fill="#1d4ed8"/>
+    <text x="50" y="48" font-family="Arial, sans-serif" font-size="7" font-weight="bold" fill="#1e40af" text-anchor="middle">MINT FRESH</text>
+  </g>
+</g>
+</svg>

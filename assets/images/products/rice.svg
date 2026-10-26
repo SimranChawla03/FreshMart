@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 170" width="100%" height="100%">
+  <defs>
+    <filter id="dropShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000000" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+  <rect width="200" height="170" fill="#ffffff" rx="12"/>
+  <g transform="translate(55, 35)" filter="url(#dropShadow)">
+  <path d="M20 25 C30 20, 60 20, 70 25 L75 90 C70 95, 20 95, 15 90 Z" fill="#e0cda9" stroke="#b08968" stroke-width="3"/>
+  <ellipse cx="45" cy="27" rx="22" ry="5" fill="#7f5539"/>
+  <rect x="25" y="45" width="40" height="30" rx="3" fill="#ffffff" opacity="0.8"/>
+  <text x="45" y="60" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#3d405b" text-anchor="middle">BASMATI</text>
+</g>
+</svg>

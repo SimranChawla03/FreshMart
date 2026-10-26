@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <circle cx="60" cy="60" r="56" fill="#fef6e9" />
+  <g transform="translate(25, 20)">
+    <path d="M12 18 L48 18 L44 68 L16 68 Z" fill="#ff595e" stroke="#d90429" stroke-width="2"/>
+    <path d="M12 18 L16 22 L20 18 L24 22 L28 18 L32 22 L36 18 L40 22 L44 18 L48 18" stroke="#ffffff" stroke-width="1.5" fill="none"/>
+    <circle cx="30" cy="42" r="11" fill="#ffca3a"/>
+    <text x="30" y="45" font-family="Arial, sans-serif" font-size="7" font-weight="bold" fill="#7a3400" text-anchor="middle">CHIPS</text>
+    <circle cx="50" cy="52" r="16" fill="#d4a373" stroke="#bc6c25" stroke-width="2"/>
+    <circle cx="44" cy="48" r="2" fill="#6f1d1b"/>
+    <circle cx="54" cy="46" r="2" fill="#6f1d1b"/>
+    <circle cx="48" cy="56" r="2" fill="#6f1d1b"/>
+  </g>
+</svg>

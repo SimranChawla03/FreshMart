@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 170" width="100%" height="100%">
+  <defs>
+    <filter id="dropShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000000" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+  <rect width="200" height="170" fill="#ffffff" rx="12"/>
+  <g transform="translate(60, 30)" filter="url(#dropShadow)">
+  <rect x="28" y="35" width="34" height="68" rx="8" fill="#cffafe" stroke="#0891b2" stroke-width="3"/>
+  <rect x="41" y="24" width="8" height="12" fill="#0891b2"/>
+  <path d="M30 22 L55 22 L55 26 L30 26 Z" fill="#164e63"/>
+  <circle cx="45" cy="65" r="10" fill="#06b6d4"/>
+</g>
+</svg>

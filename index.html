@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FreshMart — Fresh Groceries, Happy Lives</title>
+  <meta name="description" content="FreshMart — Order farm-fresh fruits, vegetables, dairy, snacks, and daily essentials online with express delivery.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       1. MAIN SITE HEADER
+       ========================================================================= -->
+  <header class="site-header">
+    <div class="header-top">
+      <div class="container header-inner">
+        <!-- Logo & Brand -->
+        <div class="brand" id="brandLogo" title="FreshMart Home">
+          <img src="assets/images/logo.svg" alt="FreshMart Logo" class="brand-logo-img">
+          <div class="brand-info">
+            <span class="brand-name">FreshMart</span>
+            <span class="brand-tagline">Fresh Groceries, Happy Lives</span>
+          </div>
+        </div>
+
+        <!-- Global Search Bar -->
+        <div class="search-container">
+          <form class="search-form" id="globalSearchForm" role="search">
+            <input 
+              type="text" 
+              class="search-input" 
+              id="globalSearchInput" 
+              placeholder="Search for fruits, vegetables, milk, snacks..." 
+              autocomplete="off"
+              aria-label="Search products"
+            >
+            <button type="submit" class="search-btn" aria-label="Submit Search">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+          </form>
+        </div>
+
+        <!-- Right Header Actions (Login, Logout & Cart) -->
+        <div class="header-actions">
+          <button class="header-action-btn" id="loginBtn" title="Account / Login">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span id="loginBtnText">Login</span>
+          </button>
+
+          <button class="header-action-btn logout-btn" id="logoutBtn" title="Log Out" style="display: none;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+              <polyline points="16 17 21 12 16 7"></polyline>
+              <line x1="21" y1="12" x2="9" y2="12"></line>
+            </svg>
+            <span>Logout</span>
+          </button>
+
+          <button class="header-action-btn cart-btn" id="cartBtn" title="View Shopping Cart">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            <span>Cart (<span id="cartCountBadge">0</span>)</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Secondary Dark Green Navigation Bar -->
+    <nav class="category-navbar" aria-label="Product Categories">
+      <div class="container">
+        <ul class="category-nav-list">
+          <li class="category-nav-item">
+            <a href="#home" class="category-nav-link active" data-category="home">Home</a>
+          </li>
+          <li class="category-nav-item">
+            <a href="#fruits-veg" class="category-nav-link" data-category="fruits-veg">Fruits &amp; Vegetables</a>
+          </li>
+          <li class="category-nav-item">
+            <a href="#dairy-eggs" class="category-nav-link" data-category="dairy-eggs">Dairy &amp; Eggs</a>
+          </li>
+          <li class="category-nav-item">
+            <a href="#snacks-foods" class="category-nav-link" data-category="snacks-foods">Snacks &amp; Foods</a>
+          </li>
+          <li class="category-nav-item">
+            <a href="#beverages" class="category-nav-link" data-category="beverages">Beverages</a>
+          </li>
+          <li class="category-nav-item">
+            <a href="#household" class="category-nav-link" data-category="household">Household Essentials</a>
+          </li>
+          <li class="category-nav-item">
+            <a href="#personal-care" class="category-nav-link" data-category="personal-care">Personal Care</a>
+          </li>
+          <li class="category-nav-item">
+            <a href="#offers" class="category-nav-link" data-category="offers">Offers</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- =========================================================================
+       MAIN APPLICATION VIEW CONTAINERS (SPA)
+       ========================================================================= -->
+  <main class="main-content">
+
+    <!-- =======================================================================
+         SCREEN 1: HOME PAGE VIEW
+         ======================================================================= -->
+    <section class="app-view active-view" id="home-view">
+      <div class="container">
+        <!-- Hero Banner -->
+        <div class="hero-banner">
+          <div class="hero-content">
+            <div class="hero-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              Estimated Delivery: 10–20 Minutes
+            </div>
+            <h1 class="hero-title">Fresh Groceries Delivered to Your Doorstep</h1>
+            <p class="hero-subtitle">Farm fresh fruits, vegetables and daily essentials delivered in 10–20 minutes at the best prices.</p>
+            <button class="btn-primary" id="heroShopNowBtn">
+              Shop Now
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+          <div class="hero-image-wrapper">
+            <img src="assets/images/hero-basket.svg" alt="Fresh Groceries Basket" class="hero-image">
+          </div>
+        </div>
+
+        <!-- 4 Service Benefits Strip -->
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="1" y="3" width="15" height="13"></rect>
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+              </svg>
+            </div>
+            <div class="benefit-text">
+              <h4 class="benefit-title">10–20 Min Delivery</h4>
+              <p class="benefit-desc">Free on orders above ₹499</p>
+            </div>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <div class="benefit-text">
+              <h4 class="benefit-title">Fresh &amp; Quality</h4>
+              <p class="benefit-desc">100% farm picked products</p>
+            </div>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="19" y1="5" x2="5" y2="19"></line>
+                <circle cx="6.5" cy="6.5" r="2.5"></circle>
+                <circle cx="17.5" cy="17.5" r="2.5"></circle>
+              </svg>
+            </div>
+            <div class="benefit-text">
+              <h4 class="benefit-title">Best Offers</h4>
+              <p class="benefit-desc">every week with big savings</p>
+            </div>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </div>
+            <div class="benefit-text">
+              <h4 class="benefit-title">24/7 Support</h4>
+              <p class="benefit-desc">we're always here to help</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Shop by Category Section -->
+        <section class="categories-section">
+          <div class="section-header">
+            <h2 class="section-title">Shop by Category</h2>
+            <a href="#catalog" class="section-link" id="viewAllCategoriesLink">
+              View All
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
+          </div>
+
+          <div class="category-cards-grid">
+            <div class="category-card" data-cat="fruits-veg">
+              <img src="assets/images/categories/fruits-veg.svg" alt="Fruits &amp; Vegetables" class="category-card-img">
+              <span class="category-card-title">Fruits &amp; Vegetables</span>
+            </div>
+            <div class="category-card" data-cat="dairy-eggs">
+              <img src="assets/images/categories/dairy-eggs.svg" alt="Dairy &amp; Eggs" class="category-card-img">
+              <span class="category-card-title">Dairy &amp; Eggs</span>
+            </div>
+            <div class="category-card" data-cat="snacks-foods">
+              <img src="assets/images/categories/snacks-foods.svg" alt="Snacks &amp; Foods" class="category-card-img">
+              <span class="category-card-title">Snacks &amp; Foods</span>
+            </div>
+            <div class="category-card" data-cat="beverages">
+              <img src="assets/images/categories/beverages.svg" alt="Beverages" class="category-card-img">
+              <span class="category-card-title">Beverages</span>
+            </div>
+            <div class="category-card" data-cat="household">
+              <img src="assets/images/categories/household.svg" alt="Household Essentials" class="category-card-img">
+              <span class="category-card-title">Household Essentials</span>
+            </div>
+            <div class="category-card" data-cat="personal-care">
+              <img src="assets/images/categories/personal-care.svg" alt="Personal Care" class="category-card-img">
+              <span class="category-card-title">Personal Care</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Featured Products Section -->
+        <section class="featured-section">
+          <div class="section-header">
+            <h2 class="section-title">Featured Products</h2>
+          </div>
+          <div class="product-grid" id="featuredProductGrid">
+            <!-- Dynamically injected via script.js -->
+          </div>
+        </section>
+
+        <!-- Promotional Strip Banner -->
+        <div class="promo-strip-banner">
+          <div class="promo-strip-content">
+            <h3>Fresh Harvest Deals — Delivered in 10–20 Minutes!</h3>
+            <p>Save big on daily staples, seasonal citrus, farm greens, and pantry items with express 10–20 minute delivery.</p>
+          </div>
+          <button class="btn-secondary" onclick="document.querySelector('[data-category=\'offers\']').click()">
+            Explore Offers
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SCREEN 2: PRODUCT LISTING / CATALOGUE VIEW
+         ======================================================================= -->
+    <section class="app-view" id="catalog-view">
+      <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <div class="breadcrumbs">
+          <a href="#home" onclick="document.getElementById('brandLogo').click(); return false;">Home</a>
+          <span class="separator">›</span>
+          <span class="current" id="breadcrumbCategory">Fruits &amp; Vegetables</span>
+        </div>
+
+        <div class="catalog-layout">
+          <!-- Left Sidebar Filters -->
+          <aside class="catalog-sidebar">
+            <!-- Categories -->
+            <div class="sidebar-block">
+              <h3 class="sidebar-heading">Categories</h3>
+              <ul class="category-filter-list">
+                <li><button class="category-filter-btn" data-cat="all">All Products</button></li>
+                <li><button class="category-filter-btn active" data-cat="fruits-veg">Fruits &amp; Vegetables</button></li>
+                <li><button class="category-filter-btn" data-cat="dairy-eggs">Dairy &amp; Eggs</button></li>
+                <li><button class="category-filter-btn" data-cat="snacks-foods">Snacks &amp; Foods</button></li>
+                <li><button class="category-filter-btn" data-cat="beverages">Beverages</button></li>
+                <li><button class="category-filter-btn" data-cat="household">Household Essentials</button></li>
+                <li><button class="category-filter-btn" data-cat="personal-care">Personal Care</button></li>
+              </ul>
+            </div>
+
+            <!-- Price Range Filter -->
+            <div class="sidebar-block">
+              <h3 class="sidebar-heading">Price Range</h3>
+              <div class="price-range-inputs">
+                <span>Min: ₹0</span>
+                <span id="priceRangeDisplay">₹0 - ₹500</span>
+              </div>
+              <input type="range" class="range-slider" id="priceRangeSlider" min="30" max="500" step="10" value="500">
+              <button class="btn-sidebar-apply" id="applyPriceFilterBtn">Apply</button>
+            </div>
+
+            <!-- Popular Filters -->
+            <div class="sidebar-block">
+              <h3 class="sidebar-heading">Popular Filters</h3>
+              <div class="checkbox-filter-list">
+                <label class="filter-checkbox-label">
+                  <input type="checkbox" id="filterOrganic">
+                  <span>Organic</span>
+                </label>
+                <label class="filter-checkbox-label">
+                  <input type="checkbox" id="filterFresh">
+                  <span>Fresh</span>
+                </label>
+                <label class="filter-checkbox-label">
+                  <input type="checkbox" id="filterOnSale">
+                  <span>On Sale</span>
+                </label>
+                <label class="filter-checkbox-label">
+                  <input type="checkbox" id="filterBestRated">
+                  <span>Best Rated (4.7+)</span>
+                </label>
+              </div>
+            </div>
+
+            <button class="btn-clear-cart" id="resetFiltersBtn" style="width: 100%; text-align: center; margin-top: 0.5rem;">
+              Reset All Filters
+            </button>
+          </aside>
+
+          <!-- Main Catalogue Grid Column -->
+          <div class="catalog-main">
+            <div class="catalog-top-bar">
+              <div class="catalog-title-group">
+                <h2 id="catalogTitle">Fruits &amp; Vegetables</h2>
+                <span class="catalog-item-count" id="catalogItemCount">Showing 6 of 25 products</span>
+              </div>
+
+              <div class="catalog-sort-group">
+                <label for="catalogSortSelect">Sort by:</label>
+                <select id="catalogSortSelect" class="sort-select">
+                  <option value="popularity">Popularity</option>
+                  <option value="price-low">Price: Low to High</option>
+                  <option value="price-high">Price: High to Low</option>
+                  <option value="name-asc">Name: A to Z</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="product-grid product-grid-catalog" id="catalogProductGrid">
+              <!-- Dynamically populated via script.js -->
+            </div>
+
+            <!-- Empty Results State -->
+            <div class="catalog-empty-state" id="catalogEmptyState">
+              <div class="catalog-empty-icon">🔍</div>
+              <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.5rem;">No products match your criteria</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.2rem;">Try adjusting your price range, clearing filters, or searching for other items.</p>
+              <button class="btn-primary" onclick="document.getElementById('resetFiltersBtn').click()">Clear All Filters</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SCREEN 3: PRODUCT DETAIL VIEW
+         ======================================================================= -->
+    <section class="app-view" id="product-detail-view">
+      <div class="container">
+        <!-- Breadcrumbs -->
+        <div class="breadcrumbs">
+          <a href="#home" onclick="document.getElementById('brandLogo').click(); return false;">Home</a>
+          <span class="separator">›</span>
+          <a href="#catalog" id="detailBreadcrumbCat">Fruits &amp; Vegetables</a>
+          <span class="separator">›</span>
+          <span class="current" id="detailBreadcrumbName">Fresh Apples</span>
+        </div>
+
+        <div class="product-detail-card">
+          <!-- Gallery Column -->
+          <div class="product-gallery">
+            <div class="gallery-main-view">
+              <img src="assets/images/products/apples.svg" alt="Product Image" class="gallery-main-img" id="detailMainImage">
+            </div>
+            <div class="gallery-thumbnails" id="detailThumbnails">
+              <!-- Dynamically filled thumbnails -->
+            </div>
+          </div>
+
+          <!-- Product Details Column -->
+          <div class="detail-info">
+            <div class="detail-top-row">
+              <h1 class="detail-title" id="detailTitle">Fresh Apples (1 kg)</h1>
+              <button class="detail-wishlist-btn" id="detailWishlistBtn" title="Add to Wishlist" aria-label="Add to Wishlist">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+            </div>
+
+            <div class="detail-price-row">
+              <span class="detail-price" id="detailPrice">₹120</span>
+              <span class="product-old-price" id="detailOldPrice" style="font-size: 1.1rem;">₹140</span>
+              <span class="badge-in-stock">In Stock</span>
+            </div>
+
+            <div class="detail-delivery-pill">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <span>Estimated Delivery: 10–20 Minutes</span>
+            </div>
+
+            <p class="detail-desc" id="detailDescription">
+              Crisp, juicy and naturally sweet apples, sourced fresh from trusted farms. Rich in vitamins and perfect for a healthy lifestyle.
+            </p>
+
+            <!-- Quantity & Add to Cart -->
+            <div class="detail-action-row">
+              <span style="font-weight: 600; color: var(--text-dark);">Quantity:</span>
+              <div class="quantity-picker">
+                <button class="qty-btn" id="detailQtyMinus">−</button>
+                <span class="qty-value" id="detailQtyValue">1</span>
+                <button class="qty-btn" id="detailQtyPlus">+</button>
+              </div>
+
+              <button class="btn-detail-add" id="detailAddBtn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- "Why you'll love it" 4 highlights -->
+        <div class="why-love-section">
+          <h3 class="why-love-title">Why you'll love it:</h3>
+          <div class="why-love-grid">
+            <div class="why-love-card">
+              <div class="why-love-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12A10 10 0 0 1 12 2z"></path>
+                  <path d="M12 6v6l4 2"></path>
+                </svg>
+              </div>
+              <h4 class="why-love-card-title">Farm Fresh</h4>
+              <p class="why-love-card-desc">Direct harvest within 24 hours</p>
+            </div>
+
+            <div class="why-love-card">
+              <div class="why-love-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <h4 class="why-love-card-title">High in Nutrients</h4>
+              <p class="why-love-card-desc">Rich in vitamins &amp; antioxidants</p>
+            </div>
+
+            <div class="why-love-card">
+              <div class="why-love-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 6L6 18M6 6l12 12"></path>
+                </svg>
+              </div>
+              <h4 class="why-love-card-title">No Harmful Chemicals</h4>
+              <p class="why-love-card-desc">Zero artificial ripening or wax</p>
+            </div>
+
+            <div class="why-love-card">
+              <div class="why-love-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+              <h4 class="why-love-card-title">Healthy Choice</h4>
+              <p class="why-love-card-desc">Hygienically sorted and packed</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SCREEN 4: SHOPPING CART VIEW
+         ======================================================================= -->
+    <section class="app-view" id="cart-view">
+      <div class="container">
+        <!-- Cart layout when items present -->
+        <div class="cart-layout" id="cartFullState">
+          <div class="cart-items-card">
+            <div class="cart-title-row">
+              <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--text-dark);">Your Cart</h2>
+              <button class="btn-clear-cart" id="clearCartBtn">Clear Cart</button>
+            </div>
+
+            <!-- Items Table/List -->
+            <div class="cart-list" id="cartItemsList">
+              <!-- Dynamically populated via script.js -->
+            </div>
+
+            <div class="cart-bottom-actions">
+              <button class="btn-continue-shopping" id="cartContinueShoppingBtn">
+                ← Continue Shopping
+              </button>
+            </div>
+          </div>
+
+          <!-- Order Summary Sidebar -->
+          <div class="order-summary-card">
+            <h3 class="summary-title">Order Summary</h3>
+
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <span id="cartSubtotal">₹0</span>
+            </div>
+
+            <div class="summary-row">
+              <span>Delivery Charge</span>
+              <span id="cartDeliveryCharge">₹40</span>
+            </div>
+
+            <div class="summary-row">
+              <span>Estimated Delivery</span>
+              <span style="font-weight: 700; color: var(--primary);">10–20 Minutes</span>
+            </div>
+
+            <div class="delivery-threshold-notice" id="cartDeliveryNotice">
+              🚚 Orders of <strong>₹499</strong> or more qualify for <strong>FREE Delivery</strong> (Estimated Delivery: 10–20 Minutes).
+            </div>
+
+            <div class="summary-row total-row">
+              <span>Total</span>
+              <span id="cartFinalTotal">₹0</span>
+            </div>
+
+            <button class="btn-checkout" id="proceedToCheckoutBtn">
+              Proceed to Checkout
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Empty Cart State -->
+        <div class="cart-empty-state" id="cartEmptyState" style="display: none;">
+          <svg class="empty-cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <h2 class="empty-cart-title">Your shopping cart is empty</h2>
+          <p class="empty-cart-text">Looks like you haven't added anything to your cart yet. Explore our fresh grocery aisles!</p>
+          <button class="btn-primary" id="emptyCartContinueBtn">Start Shopping</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SCREEN 5: CHECKOUT VIEW
+         ======================================================================= -->
+    <section class="app-view" id="checkout-view">
+      <div class="container">
+        <h2 style="font-size: 1.6rem; font-weight: 800; color: var(--text-dark); margin-bottom: 1.5rem;">Checkout</h2>
+
+        <div class="checkout-layout">
+          <!-- Left Forms Column -->
+          <div class="checkout-forms">
+            <!-- 1. Delivery Information -->
+            <div class="checkout-step-card">
+              <h3 class="step-header">
+                <span>1. Delivery Information</span>
+                <span style="font-size: 0.82rem; font-weight: 600; color: var(--primary); margin-left: auto;">⚡ Estimated Delivery: 10–20 Minutes</span>
+              </h3>
+
+              <div class="form-grid">
+                <!-- Full Name -->
+                <div class="form-group col-span-2">
+                  <label class="form-label" for="checkoutFullName">Full Name <span class="req">*</span></label>
+                  <input type="text" id="checkoutFullName" class="form-control" placeholder="Enter your full name">
+                  <span class="error-message" id="errCheckoutFullName"></span>
+                </div>
+
+                <!-- Phone Number -->
+                <div class="form-group col-span-2">
+                  <label class="form-label" for="checkoutPhone">Phone Number <span class="req">*</span> (10-digit Indian mobile)</label>
+                  <input type="tel" id="checkoutPhone" class="form-control" placeholder="Enter your 10-digit phone number" maxlength="10">
+                  <span class="error-message" id="errCheckoutPhone"></span>
+                </div>
+
+                <!-- Email Address (Optional) -->
+                <div class="form-group col-span-2">
+                  <label class="form-label" for="checkoutEmail">Email Address (Optional for order receipt)</label>
+                  <input type="email" id="checkoutEmail" class="form-control" placeholder="example@email.com">
+                  <span class="error-message" id="errCheckoutEmail"></span>
+                </div>
+
+                <!-- Street Address -->
+                <div class="form-group col-span-2">
+                  <label class="form-label" for="checkoutAddress">Street / Building Address <span class="req">*</span></label>
+                  <input type="text" id="checkoutAddress" class="form-control" placeholder="House/Flat No., Apartment, Street name">
+                  <span class="error-message" id="errCheckoutAddress"></span>
+                </div>
+
+                <!-- City -->
+                <div class="form-group">
+                  <label class="form-label" for="checkoutCity">City <span class="req">*</span></label>
+                  <input type="text" id="checkoutCity" class="form-control" placeholder="Enter city" value="Bangalore">
+                  <span class="error-message" id="errCheckoutCity"></span>
+                </div>
+
+                <!-- PIN Code -->
+                <div class="form-group">
+                  <label class="form-label" for="checkoutPincode">Pincode <span class="req">*</span></label>
+                  <input type="text" id="checkoutPincode" class="form-control" placeholder="Enter 6-digit pincode" maxlength="6" value="560001">
+                  <span class="error-message" id="errCheckoutPincode"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. Payment Method -->
+            <div class="checkout-step-card">
+              <h3 class="step-header">
+                <span>2. Payment Method</span>
+              </h3>
+
+              <div class="payment-options-list">
+                <label class="payment-option-label selected">
+                  <div class="payment-option-left">
+                    <input type="radio" name="paymentMethod" value="Cash on Delivery" checked>
+                    <span>Cash on Delivery (COD)</span>
+                  </div>
+                  <span class="payment-option-badge">COD</span>
+                </label>
+
+                <label class="payment-option-label">
+                  <div class="payment-option-left">
+                    <input type="radio" name="paymentMethod" value="UPI Payment (Simulation)">
+                    <span>UPI Payment (GPay, PhonePe, Paytm)</span>
+                  </div>
+                  <span class="payment-option-badge">UPI</span>
+                </label>
+
+                <label class="payment-option-label">
+                  <div class="payment-option-left">
+                    <input type="radio" name="paymentMethod" value="Debit / Credit Card (Simulation)">
+                    <span>Debit / Credit Card</span>
+                  </div>
+                  <span class="payment-option-badge">CARD</span>
+                </label>
+              </div>
+
+              <div class="demo-disclaimer-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                <span>Academic Demo Mode: Payment is completely simulated. No real payment credentials or financial transactions are executed.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column Summary -->
+          <div class="order-summary-card">
+            <h3 class="summary-title">Order Summary</h3>
+
+            <div class="summary-row">
+              <span>Items Total</span>
+              <span id="checkoutItemsTotal">₹0</span>
+            </div>
+
+            <div class="summary-row">
+              <span>Delivery Charge</span>
+              <span id="checkoutDeliveryCharge">₹40</span>
+            </div>
+
+            <div class="summary-row">
+              <span>Estimated Delivery</span>
+              <span style="font-weight: 700; color: var(--primary);">10–20 Minutes</span>
+            </div>
+
+            <div class="summary-row total-row">
+              <span>Total Amount</span>
+              <span id="checkoutFinalTotal">₹0</span>
+            </div>
+
+            <button class="btn-checkout" id="placeOrderBtn">
+              Place Order
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SCREEN 6: ORDER CONFIRMATION VIEW
+         ======================================================================= -->
+    <section class="app-view" id="order-confirmation-view">
+      <div class="container">
+        <div class="confirmation-container">
+          <!-- Big Checkmark -->
+          <div class="confirmation-icon-wrapper">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+
+          <h1 class="confirmation-title">Order Placed Successfully!</h1>
+          <p class="confirmation-subtitle">Thank you for shopping with FreshMart.</p>
+
+          <!-- Order Receipt Card -->
+          <div class="confirmation-card">
+            <div class="conf-meta-grid">
+              <div class="conf-meta-item">
+                <div class="label">Order ID</div>
+                <div class="val" id="confOrderId">FM20261027</div>
+              </div>
+
+              <div class="conf-meta-item">
+                <div class="label">Order Date &amp; Time</div>
+                <div class="val" id="confOrderDate">Today</div>
+              </div>
+
+              <div class="conf-meta-item">
+                <div class="label">Total Amount</div>
+                <div class="val" id="confFinalTotal" style="color: var(--primary);">₹380</div>
+              </div>
+
+              <div class="conf-meta-item">
+                <div class="label">Payment Method</div>
+                <div class="val" id="confPaymentMethod">Cash on Delivery</div>
+              </div>
+
+              <div class="conf-meta-item">
+                <div class="label">Estimated Delivery</div>
+                <div class="val" id="confEstDelivery">10–20 Minutes</div>
+              </div>
+            </div>
+
+            <!-- Ordered Products Breakdown -->
+            <div class="conf-items-heading">Ordered Items:</div>
+            <div class="conf-items-list" id="confItemsList">
+              <!-- Dynamically populated via script.js -->
+            </div>
+          </div>
+
+          <div class="confirmation-actions">
+            <button class="btn-primary" id="confContinueShoppingBtn">
+              Continue Shopping
+            </button>
+            <button class="btn-secondary" id="printReceiptBtn" style="border: 1px solid var(--border-light);">
+              Print Receipt
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       DEMO LOGIN MODAL
+       ========================================================================= -->
+  <div class="modal-backdrop" id="loginModal">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close Modal">&times;</button>
+      <h3 class="modal-title">Customer Login (Demo Mode)</h3>
+      <p class="modal-subtitle">Please log in to add products to your cart and place grocery orders.</p>
+
+      <div class="demo-disclaimer-box" style="margin-top: 0; margin-bottom: 1.25rem;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="16" x2="12" y2="12"></line>
+          <line x1="12" y1="8" x2="12.01" y2="8"></line>
+        </svg>
+        <span>Demo Mode: Enter your 10-digit Indian mobile number to log in. No real OTP is sent.</span>
+      </div>
+
+      <form id="demoLoginForm" novalidate>
+        <div class="form-group" style="margin-bottom: 1rem;">
+          <label class="form-label" for="loginInputPhone">Mobile Number <span class="req">*</span></label>
+          <input type="tel" id="loginInputPhone" class="form-control" placeholder="10-digit mobile number (e.g. 9876543210)" maxlength="10" required>
+          <span class="error-message" id="errLoginPhone"></span>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1.25rem;">
+          <label class="form-label" for="loginInputName">Your Name (Optional)</label>
+          <input type="text" id="loginInputName" class="form-control" placeholder="e.g. Rahul Sharma">
+        </div>
+
+        <button type="submit" class="btn-primary" style="width: 100%; margin-bottom: 0.75rem;">
+          Log In &amp; Continue Shopping
+        </button>
+
+        <button type="button" class="btn-secondary" id="quickDemoLoginBtn" style="width: 100%; border: 1px solid var(--border-light); text-align: center;">
+          ⚡ Quick 1-Click Demo Login (Rahul Sharma · 9876543210)
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- =========================================================================
+       SITE FOOTER
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand Summary -->
+        <div class="footer-col">
+          <div class="brand" style="margin-bottom: 0.5rem;">
+            <img src="assets/images/logo.svg" alt="FreshMart" class="brand-logo-img">
+            <div class="brand-info">
+              <span class="brand-name">FreshMart</span>
+              <span class="brand-tagline">Fresh Groceries, Happy Lives</span>
+            </div>
+          </div>
+          <p class="footer-brand-desc">
+            Your trusted neighborhood digital grocery market. Delivering farm-fresh produce, daily dairy, breakfast staples, and household essentials.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#home" class="footer-link" onclick="document.getElementById('brandLogo').click(); return false;">Home</a></li>
+            <li><a href="#catalog" class="footer-link" onclick="document.querySelector('[data-category=\'all\']').click(); return false;">All Products</a></li>
+            <li><a href="#offers" class="footer-link" onclick="document.querySelector('[data-category=\'offers\']').click(); return false;">Special Offers</a></li>
+            <li><a href="#cart" class="footer-link" onclick="document.getElementById('cartBtn').click(); return false;">Shopping Cart</a></li>
+          </ul>
+        </div>
+
+        <!-- Categories -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Categories</h4>
+          <ul class="footer-links">
+            <li><a href="#fruits-veg" class="footer-link" onclick="document.querySelector('[data-category=\'fruits-veg\']').click(); return false;">Fruits &amp; Vegetables</a></li>
+            <li><a href="#dairy-eggs" class="footer-link" onclick="document.querySelector('[data-category=\'dairy-eggs\']').click(); return false;">Dairy &amp; Eggs</a></li>
+            <li><a href="#snacks-foods" class="footer-link" onclick="document.querySelector('[data-category=\'snacks-foods\']').click(); return false;">Snacks &amp; Foods</a></li>
+            <li><a href="#beverages" class="footer-link" onclick="document.querySelector('[data-category=\'beverages\']').click(); return false;">Beverages</a></li>
+            <li><a href="#household" class="footer-link" onclick="document.querySelector('[data-category=\'household\']').click(); return false;">Household Essentials</a></li>
+          </ul>
+        </div>
+
+        <!-- Customer Support -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Contact &amp; Support</h4>
+          <ul class="footer-links">
+            <li class="footer-link">📍 Nagpur, Maharashtra, India</li>
+            <li class="footer-link">📞 +91 98765 43210 (Mon-Sat, 9am-8pm)</li>
+            <li class="footer-link">✉️ support@freshmart.demo</li>
+            <li class="footer-link">🚚 Estimated Delivery: 10–20 Minutes (7:00 AM – 10:00 PM)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 FreshMart. All rights reserved. Built for College E-Commerce &amp; ERP TA-2 Assessment.</span>
+        <span>Secure Demo Shopping Simulation</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

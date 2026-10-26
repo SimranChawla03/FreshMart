@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 170" width="100%" height="100%">
+  <defs>
+    <filter id="dropShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000000" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+  <rect width="200" height="170" fill="#ffffff" rx="12"/>
+  <g transform="translate(45, 45)" filter="url(#dropShadow)">
+  <rect x="15" y="30" width="80" height="42" rx="15" fill="#e9c46a" stroke="#d4a373" stroke-width="3"/>
+  <circle cx="35" cy="51" r="14" fill="#faedcd" stroke="#d4a373" stroke-width="2"/>
+  <circle cx="75" cy="51" r="14" fill="#faedcd" stroke="#d4a373" stroke-width="2"/>
+  <text x="55" y="55" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#78350f" text-anchor="middle">COOKIES</text>
+</g>
+</svg>
